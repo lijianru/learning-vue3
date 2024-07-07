@@ -9,6 +9,8 @@ import vueDevTools from 'vite-plugin-vue-devtools';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import IconsResolver from 'unplugin-icons/resolver';
 import Icons from 'unplugin-icons/vite';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -45,6 +47,12 @@ export default defineConfig({
     Icons({
       // 自动安装图标库
       autoInstall: true,
+    }),
+    createSvgIconsPlugin({
+      // 指定需要缓存的图标文件夹
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+      // 指定symbolId格式
+      symbolId: 'icon-[dir]-[name]',
     }),
   ],
   resolve: {

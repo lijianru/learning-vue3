@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import ElementPlus from 'element-plus';
+import 'virtual:svg-icons-register';
 
 import App from './App.vue';
 import router from './router';
